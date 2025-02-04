@@ -1,0 +1,24 @@
+.matchPlayers {
+
+  &__headline {
+    font-weight: bold;
+    padding: 8px 20px;
+    border-bottom: 1px solid #BDBDBD;
+
+    &.border {
+      border-top: 1px solid #BDBDBD;
+    }
+  }
+
+  &__teamsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

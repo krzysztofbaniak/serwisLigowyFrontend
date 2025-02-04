@@ -1,0 +1,29 @@
+.matchEvents {
+
+  &__headline {
+    font-weight: bold;
+    padding: 8px 20px;
+    border-bottom: 1px solid #BDBDBD;
+
+    &.border {
+      border-top: 1px solid #BDBDBD;
+    }
+  }
+
+  &__event {
+    padding: 8px 20px;
+  }
+
+  &__empty {
+    text-align: center;
+    padding: 16px 20px;
+  }
+
+  &__home {
+    text-align: left;
+  }
+
+  &__away {
+    text-align: right;
+  }
+}

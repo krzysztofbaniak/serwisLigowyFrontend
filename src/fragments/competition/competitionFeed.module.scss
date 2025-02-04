@@ -1,0 +1,29 @@
+.contestFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__entry {
+    display: block;
+    padding: 4px 12px;
+    border-bottom: 1px solid #BDBDBD;
+
+    &:hover {
+      background: #dcdcdc;
+    }
+
+    &:last-child  {
+      border-bottom: none;
+    }
+  }
+
+  &__empty {
+    padding: 24px 12px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,43 @@
+.competitionEntry {
+  display: block;
+  border-bottom: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__wrapper {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 4px 16px;
+    align-items: center;
+  }
+
+  &__logotype {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    grid-row: span 2;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    grid-column: span 2;
+  }
+
+  &__location {
+    font-size: 14px;
+  }
+
+  &__reward {
+    font-size: 14px;
+    color: #0F3735;
+  }
+}

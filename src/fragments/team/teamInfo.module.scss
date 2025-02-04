@@ -1,0 +1,39 @@
+.teamInfo {
+
+  &__empty {
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: 16px 20px;
+    gap: 4px 20px;
+  }
+
+  &__image {
+    grid-row: span 2;
+  }
+
+  &__teamName {
+    font-size: 18px;
+    font-weight: bold;
+    align-self: end;
+  }
+
+  &__additionalInfo {
+    font-size: 14px;
+  }
+}
+
+.returnLink {
+  display: block;
+  padding: 8px 40px;
+  margin: -8px -12px;
+  border-right: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+}

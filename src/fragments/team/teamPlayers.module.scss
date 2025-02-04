@@ -1,0 +1,14 @@
+.teamPlayers {
+
+  &__empty {
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 20px;
+    gap: 8px;
+  }
+}

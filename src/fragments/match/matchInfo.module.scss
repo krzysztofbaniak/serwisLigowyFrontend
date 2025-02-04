@@ -1,0 +1,40 @@
+.matchInfo {
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 160px 1fr 160px;
+    padding: 16px 20px;
+  }
+
+  &__teamWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__infoParagraph {
+    text-align: center;
+    font-size: 14px;
+    color: #4F4F4F;
+  }
+
+  &__score {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 12px;
+  }
+
+  &__empty {
+    padding: 32px 20px;
+    text-align: center;
+  }
+}

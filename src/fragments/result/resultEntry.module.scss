@@ -1,0 +1,48 @@
+.resultEntry {
+  display: block;
+  border-bottom: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    gap: 4px 8px;
+    padding: 16px 20px;
+  }
+
+  &__team {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__teamName {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__score {
+    font-weight: bold;
+    justify-self: end;
+
+    &.win {
+      color: #219653;
+    }
+
+    &.lose {
+      color: #EB5757;
+    }
+  }
+}

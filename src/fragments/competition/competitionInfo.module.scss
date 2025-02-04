@@ -1,0 +1,38 @@
+.infoWrapper {
+  display: grid;
+  grid-template-columns: 80px auto;
+  padding: 16px 20px;
+  gap: 16px;
+
+  &__infoList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__paragraph {
+    font-size: 14px;
+  }
+
+  &__empty {
+    grid-column: span 2;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.returnLink {
+  display: block;
+  padding: 8px 40px;
+  margin: -8px -12px;
+  border-right: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+}

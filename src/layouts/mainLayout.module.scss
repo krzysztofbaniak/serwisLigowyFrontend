@@ -1,0 +1,15 @@
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr 100px;
+  align-items: start;
+  justify-items: center;
+  min-height: 100svh;
+  gap: 16px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 240px 696px 240px;
+  gap: 32px;
+  grid-row-start: 2;
+}
