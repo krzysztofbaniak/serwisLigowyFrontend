@@ -1,11 +1,11 @@
 import MainLayout from "@/layouts/mainLayout";
-import TournamentListingPageBody from "@/app/turnieje/fragments/tournamentListingPageBody";
+import CompetitionList from "@/fragments/competition/competitionList";
 
 export default function Page() {
 
     return (
         <MainLayout>
-            <TournamentListingPageBody />
+            <CompetitionList type={'tournament'} state={'inProgress'} headline={'Aktualne turnieje'} />
         </MainLayout>
     );
 }

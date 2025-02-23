@@ -38,7 +38,7 @@ export default function MatchPlayers({matchReport}) {
                     <>
                         <p className={`${styles.matchPlayers__headline} ${styles.border}`}>Rezerwowi</p>
                         <div className={styles.matchPlayers__teamsWrapper}>
-                            <div>
+                            <div className={styles.matchPlayers__list}>
                                 {homePlayersBench.map((player) => {
                                     return (
                                         <div key={player.id}>
@@ -47,7 +47,7 @@ export default function MatchPlayers({matchReport}) {
                                     )
                                 })}
                             </div>
-                            <div>
+                            <div className={styles.matchPlayers__list}>
                                 {awayPlayersBench.map((player) => {
                                     return (
                                         <div key={player.id}>

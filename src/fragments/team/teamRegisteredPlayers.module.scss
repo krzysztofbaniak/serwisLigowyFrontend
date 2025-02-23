@@ -1,0 +1,56 @@
+.teamRegisteredPlayers {
+
+  &__entry {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr;
+    padding: 16px 20px;
+    gap: 4px 16px;
+    align-items: center;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #BDBDBD;
+    }
+  }
+
+  &__avatar {
+    grid-row: span 2;
+    border-radius: 8px;
+  }
+
+  &__name {
+    font-weight: bold;
+  }
+
+  &__info {
+    font-size: 14px;
+    color: #333333;
+  }
+
+  &__delete {
+    color: #EB5757;
+    background: transparent;
+    border: none;
+    justify-self: end;
+    text-decoration: underline;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__empty {
+    padding: 32px 20px;
+    text-align: center;
+  }
+}
+
+.returnLink {
+  display: block;
+  padding: 8px 40px;
+  margin: -8px -12px;
+  border-right: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+}

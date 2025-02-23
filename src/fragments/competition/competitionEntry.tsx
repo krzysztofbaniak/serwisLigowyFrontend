@@ -9,7 +9,7 @@ export default function CompetitionEntry({competition}) {
     return (
         <Link className={styles.competitionEntry} href={`/${linkCategory}/${competition.slug}`}>
             <div className={styles.competitionEntry__wrapper}>
-                <Avatar className={styles.competitionEntry__logotype} src={competition.logotype[0]?.formats?.thumbnail?.url} alt={competition.name} width={40} height={40}/>
+                <Avatar className={styles.competitionEntry__logotype} src={competition.logotype ? competition.logotype[0]?.formats?.thumbnail?.url : null} alt={competition.name} width={40} height={40}/>
                 <p className={styles.competitionEntry__title}>{competition.name}</p>
                 <p className={styles.competitionEntry__location}>{`${competition.voivodeship}, ${competition.city}`}</p>
                 {competition.reward && <p className={styles.competitionEntry__reward}>Nagroda: {competition.reward}</p>}

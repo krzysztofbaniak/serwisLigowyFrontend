@@ -14,12 +14,14 @@ export default function Navigation() {
                 <Link className={styles.navigation__link} href={'/ligi'}>Ligi</Link>
                 <Link className={styles.navigation__link} href={'/mecze'}>Mecze</Link>
                 <Link className={styles.navigation__link} href={'/wyniki'}>Wyniki</Link>
+                <Link className={styles.navigation__link} href={'/nabory'}>Nabory</Link>
                 <Link className={styles.navigation__link} href={'/aktualnosci'}>Aktualności</Link>
-                <Link className={styles.navigation__link} href={'/wyszukiwanie'}>Wyszukiwanie</Link>
                 {userData.checkIfUserIsAuth() ? (
                     <>
-                        <Link className={styles.navigation__link} href={'/konto'}>Konto</Link>
-                        <Link className={styles.navigation__link} href={'/wyloguj'}>Wyloguj</Link>
+                        <div className={styles.navigation__account}>
+                            <Link className={styles.navigation__link} href={'/konto'}>Konto</Link>
+                            <Link className={styles.navigation__link} href={'/wyloguj'}>Wyloguj</Link>
+                        </div>
                     </>
                 ) : (
                     <Link className={styles.navigation__link} href={'/logowanie'}>Logowanie</Link>

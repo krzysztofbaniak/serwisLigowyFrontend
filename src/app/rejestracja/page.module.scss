@@ -49,3 +49,33 @@
   text-decoration: underline;
   text-align: center;
 }
+
+.select {
+  font-size: 14px;
+}
+
+/*
+:global(div.selectControl) {
+  background: #E0E0E0;
+  color: #000000;
+  border-radius: 12px;
+  border: none;
+}
+
+:global(div.selectPlaceholder) {
+  color: #333333;
+  margin-left: 8px;
+}
+
+:global(div.option) {
+  padding-left: 16px;
+}
+
+:global(div.singleValue) {
+  margin-left: 8px;
+  color: #000000;
+}
+
+:global(div.menu) {
+  border-radius: 12px;
+}*/

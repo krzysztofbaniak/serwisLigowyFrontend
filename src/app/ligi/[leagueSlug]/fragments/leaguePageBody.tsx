@@ -6,6 +6,7 @@ import MatchFeed from "@/fragments/match/matchFeed";
 import ResultFeed from "@/fragments/result/resultFeed";
 import CompetitionInfo from "@/fragments/competition/competitionInfo";
 import styles from './leaguePageBody.module.scss'
+import CompetitionTable from "@/fragments/competition/competitionTable";
 
 export default function LeaguePageBody() {
     const params = useParams<{ leagueSlug: string; }>()
@@ -14,6 +15,7 @@ export default function LeaguePageBody() {
     const [posts, setPosts] = useState({data: [], placeholder: 'Ładowanie...'});
     const [matches, setMatches] = useState({data: [], placeholder: 'Ładowanie...'});
     const [scores, setScores] = useState({data: [], placeholder: 'Ładowanie...'});
+    const [table, setTable] = useState({data: [], placeholder: 'Ładowanie...'});
 
     useEffect(() => {
         async function fetchLeague() {
@@ -44,13 +46,21 @@ export default function LeaguePageBody() {
             let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&populate[matchReport][populate][3]=goals&filters[competition][documentId][$eq]=${league.documentId}&filters[matchReport][$notNull]=true&pagination[limit]=20`;
             const res = await fetch(apiUrl)
             const data = await res.json()
-            setScores({data: data.data, placeholder: 'Brak meczów'})
+            setScores({data: data.data, placeholder: 'Brak wyników'})
+        }
+
+        async function fetchTable() {
+            let apiUrl = `${process.env.apiHost}/api/league-tables?populate[tableEntries][populate]=team&filters[relatedCompetition][documentId][$eq]=${league?.documentId}`;
+            const res = await fetch(apiUrl)
+            const data = await res.json()
+            setTable({data: data.data, placeholder: 'Brak danych'})
         }
 
         if(league) {
             fetchPosts()
             fetchMatches()
             fetchScores()
+            fetchTable()
         }
 
     }, [league])
@@ -64,6 +74,7 @@ export default function LeaguePageBody() {
                        redirectLink={`/ligi/${league?.slug}/mecze`}/>
             <ResultFeed matches={scores.data} placeholder={matches.placeholder}
                         redirectLink={`/ligi/${league?.slug}/wyniki`}/>
+            <CompetitionTable leagueTable={table.data[0]} placeholder={matches.placeholder}/>
         </div>
     )
 }

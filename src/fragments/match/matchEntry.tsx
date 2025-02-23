@@ -11,14 +11,14 @@ export default function MatchEntry({match}) {
         <Link className={styles.matchEntry} href={`/mecze/${match.id}`}>
             <div className={styles.matchEntry__wrapper}>
                 <div className={styles.matchEntry__team}>
-                    <Avatar width={24} height={24} src={match.homeTeam.logotype?.url}
-                            alt={match.homeTeam.logotype?.name}/>
-                    <p className={styles.matchEntry__teamName}>{match.homeTeam.name}</p>
+                    <Avatar width={24} height={24} src={match.homeTeam ? match.homeTeam.logotype?.url : ''}
+                            alt={match.homeTeam ? match.homeTeam.logotype?.name : ''}/>
+                    <p className={styles.matchEntry__teamName}>{match.homeTeam ? match.homeTeam.name : "TBA"}</p>
                 </div>
                 <div className={styles.matchEntry__team}>
-                    <Avatar width={24} height={24} src={match.awayTeam.logotype?.url}
-                            alt={match.awayTeam.logotype?.name}/>
-                    <p className={styles.matchEntry__teamName}>{match.awayTeam.name}</p>
+                    <Avatar width={24} height={24} src={ match.awayTeam ? match.awayTeam.logotype?.url : ''}
+                            alt={match.awayTeam ? match.awayTeam.logotype?.name : ''}/>
+                    <p className={styles.matchEntry__teamName}>{ match.awayTeam ? match.awayTeam.name : 'TBA'}</p>
                 </div>
                 <p className={styles.matchEntry__info}>{dateValue.toLocaleDateString()}r.,
                     godz. {dateValue.toLocaleTimeString().slice(0, -3)}</p>

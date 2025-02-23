@@ -1,0 +1,33 @@
+.notifications {
+
+  &__entry {
+    font-size: 12px;
+    display: flex;
+    border-bottom: 1px solid #BDBDBD;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__paragraph {
+    padding: 12px;
+  }
+
+  &__button {
+    background: transparent;
+    border: none;
+    color: #000000;
+    padding: 12px;
+
+    &:hover {
+      background: #dcdcdc;
+      cursor: pointer;
+    }
+  }
+
+  &__empty {
+    padding: 24px 12px;
+    text-align: center;
+  }
+}

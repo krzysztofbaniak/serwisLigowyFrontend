@@ -1,11 +1,11 @@
 import MainLayout from "@/layouts/mainLayout";
-import LeagueListingPageBody from "@/app/ligi/fragments/leagueListingPageBody";
+import CompetitionList from "@/fragments/competition/competitionList";
 
 export default function Page() {
 
     return (
         <MainLayout>
-            <LeagueListingPageBody />
+            <CompetitionList type={'league'} state={'inProgress'} headline={'Aktualne ligi'} />
         </MainLayout>
     );
 }

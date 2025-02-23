@@ -17,12 +17,12 @@ export default function CompetitionInfo({competition, returnLink}: any) {
             <div className={styles.infoWrapper}>
                 {competition ? (
                     <>
-                        <Avatar src={competition.logotype[0]?.url} width={80} height={80}
-                                alt={competition.logotype[0]?.name}/>
+                        <Avatar src={competition.logotype ? competition.logotype[0]?.url : null} width={80} height={80}
+                                alt={competition.logotype ? competition.logotype[0]?.name : ''}/>
                         <div className={styles.infoWrapper__infoList}>
                             <h1 className={styles.infoWrapper__name}>{competition.name}</h1>
                             <p className={styles.infoWrapper__paragraph}>{`${competition.voivodeship}, ${competition.city}`}</p>
-                            <p className={styles.infoWrapper__paragraph}>Nagroda: {competition.reward}</p>
+                            {competition.reward && <p className={styles.infoWrapper__paragraph}>Nagroda: {competition.reward}</p>}
                         </div>
                     </>
                 ) : (

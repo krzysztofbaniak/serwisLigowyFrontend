@@ -21,7 +21,7 @@ export default function Page() {
 
     function handleFormSubmit(values) {
         axios
-            .post("${process.env.apiHost}/api/auth/local", {
+            .post(`${process.env.apiHost}/api/auth/local`, {
                 identifier: values.userEmail,
                 password: values.userPassword,
             })
@@ -30,7 +30,7 @@ export default function Page() {
                 console.log("User token", response.data.jwt);
 
                 setCookie('access_token', response.data.jwt)
-                userData.handleUserChange(response.data.user.id, response.data.user.username)
+                userData.handleUserChange(response.data.user)
                 redirectPath = '/'
             })
             .catch((error) => {
@@ -64,7 +64,7 @@ export default function Page() {
                                 </div>
                                 <div className={styles.buttonsWrapper}>
                                     <Button type={"submit"}>Zaloguj się</Button>
-                                    <Button redirect={'/rejestracja'}>Rejestracja</Button>
+                                    <Button ghostStyle={true} redirect={'/rejestracja'}>Rejestracja</Button>
                                 </div>
                             </>
                         </FormBox>

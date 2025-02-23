@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 import MatchFeed from "@/fragments/match/matchFeed";
 import Select from "react-select";
-import {voivodeshipsSelectOptions} from "@/config/voivodeships";
+import {voivodeshipsSelectOptions} from "@/utils/data";
 import NoSSR from "@/components/noSSR";
 
 export default function MatchListingPageBody() {
@@ -17,9 +17,9 @@ export default function MatchListingPageBody() {
 
     useEffect(() => {
         async function fetchMatches() {
-            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}`;
+            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}&sort=datetime:asc`;
             if(voivodeship) {
-                apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&filters[voivodeship][$eq]=${voivodeship}&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}`;
+                apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&filters[voivodeship][$eq]=${voivodeship}&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}&sort=datetime:asc`;
             }
             const res = await fetch(apiUrl)
             const data = await res.json()
@@ -36,9 +36,9 @@ export default function MatchListingPageBody() {
 
     useEffect(() => {
         async function updateMatches() {
-            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}`;
+            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}&sort=datetime:asc`;
             if(voivodeship) {
-                apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&filters[voivodeship][$eq]=${voivodeship}&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}`;
+                apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&filters[voivodeship][$eq]=${voivodeship}&pagination[limit]=${pagination.limit}&pagination[start]=${pagination.start}&sort=datetime:asc`;
             }
             const res = await fetch(apiUrl)
             const data = await res.json()

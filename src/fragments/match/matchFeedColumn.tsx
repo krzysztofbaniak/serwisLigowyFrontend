@@ -12,7 +12,7 @@ export default function MatchFeedColumn() {
     useEffect(() => {
         async function fetchMatches() {
             const date = new Date().toLocaleDateString("en-CA");
-            let url = `${process.env.apiHost}/api/matches?populate=*&filters[datetime][$gte]=2025-02-01&sort=datetime:asc`;
+            let url = `${process.env.apiHost}/api/matches?populate=*&filters[matchReport][$null]=true&sort=datetime:asc`;
             const res = await fetch(url)
             const data = await res.json()
             setMatches(data.data)
@@ -29,12 +29,11 @@ export default function MatchFeedColumn() {
                         matches.map(match => {
                         const dateSource = Date.parse(match.datetime);
                         const dateValue = new Date(dateSource)
-                        console.log(match)
 
                         return (
                             <Link href={`/mecze/${match.id}`} className={styles.matchFeed__entry} key={match.id}>
-                                <p className={styles.matchFeed__teamName}>{match.homeTeam.name}</p>
-                                <p className={styles.matchFeed__teamName}>{match.awayTeam.name}</p>
+                                <p className={styles.matchFeed__teamName}>{match.homeTeam ? match.homeTeam.name : '-'}</p>
+                                <p className={styles.matchFeed__teamName}>{match.awayTeam ? match.awayTeam.name : '-'}</p>
                                 <p className={styles.matchFeed__smallDetails}>{dateValue.toLocaleDateString().slice(0, -5)}</p>
                                 <p className={styles.matchFeed__smallDetails}>{dateValue.toLocaleTimeString().slice(0, -3)}</p>
                             </Link>

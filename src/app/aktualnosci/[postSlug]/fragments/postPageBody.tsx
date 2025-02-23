@@ -20,7 +20,7 @@ export default function PostPageBody() {
         }
 
         async function fetchPosts() {
-            let apiUrl = `${process.env.apiHost}/api/posts?populate=image&filters[slug][$ne]=${params.postSlug}&pagination[limit]=3`;
+            let apiUrl = `${process.env.apiHost}/api/posts?populate=image&filters[slug][$ne]=${params.postSlug}&pagination[limit]=3&sort=createdAt:desc`;
             const res = await fetch(apiUrl)
             const data = await res.json()
             setPosts({data: data.data, placeholder: 'Brak wpisów'})

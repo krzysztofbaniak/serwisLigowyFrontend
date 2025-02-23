@@ -3,43 +3,43 @@
 import {createContext, useEffect, useState} from "react";
 import {useCookies} from "react-cookie";
 
-const defaultUserValues: any = {currentUserId: null, currentUserName: '', handleUserChange: ()=> {}, checkIfUserIsAuth: () => {}, handleUserLogout: () => {}};
+const defaultUserValues: any = {currentUser: null, handleUserChange: ()=> {}, checkIfUserIsAuth: () => {}, handleUserLogout: () => {}};
 
 export const UserContext = createContext(defaultUserValues);
 
 export function Providers({ children }) {
 
-    const [currentUserId, setCurrentUserId] = useState(defaultUserValues.currentUserId);
-    const [currentUserName, setCurrentUserName] = useState(defaultUserValues.currentUserName);
+    const [currentUser, setCurrentUser] = useState(defaultUserValues.currentUser);
     const [cookies, setCookie, removeCookie] = useCookies(['access_token']);
 
     useEffect(()=> {
         if(typeof window !== 'undefined') {
-            const items = JSON.parse(localStorage.getItem('currentUser')) || {currentUserId: null, currentUserName: ''}
-            setCurrentUserId(items.currentUserId);
-            setCurrentUserName(items.currentUserName);
+            const currentUser = JSON.parse(localStorage.getItem('currentUser')) || null
+            setCurrentUser(currentUser);
         }
     }, [])
 
-    const handleUserChange = (id, name) => {
-        setCurrentUserId(id)
-        setCurrentUserName(name)
-        localStorage.setItem('currentUser', JSON.stringify({currentUserId: id, currentUserName: name}));
+    const handleUserChange = (user) => {
+        setCurrentUser(user);
+        localStorage.setItem('currentUser', JSON.stringify(user));
     }
 
     const checkIfUserIsAuth = () => {
-        return currentUserId !== null;
+        return !!currentUser && currentUser.id !== null;
     }
 
     const handleUserLogout = () => {
         removeCookie('access_token');
-        setCurrentUserId(defaultUserValues.currentUserId)
-        setCurrentUserName(defaultUserValues.currentUserName)
+        setCurrentUser(defaultUserValues.currentUser)
         localStorage.removeItem('currentUser');
     }
 
+    if (!cookies.access_token && (currentUser && currentUser.id !== null)) {
+        handleUserLogout()
+    }
+
     return (
-        <UserContext.Provider value={{currentUserId, currentUserName, handleUserChange, checkIfUserIsAuth, handleUserLogout}}>
+        <UserContext.Provider value={{currentUser, handleUserChange, checkIfUserIsAuth, handleUserLogout}}>
             {children}
         </UserContext.Provider>
     );

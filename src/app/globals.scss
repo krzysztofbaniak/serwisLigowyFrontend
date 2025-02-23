@@ -18,7 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input, button {
+input, button, textarea {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
@@ -36,5 +36,56 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+main {
+
+  div.selectControl {
+    background: #E0E0E0;
+    color: #000000;
+    border-radius: 12px;
+    border: none;
+  }
+
+  div.selectPlaceholder {
+    color: #333333;
+    margin-left: 8px;
+  }
+
+  div.option {
+    padding-left: 16px;
+  }
+
+  div.singleValue {
+    margin-left: 8px;
+    color: #000000;
+  }
+
+  div.input {
+    margin-left: 8px;
+    color: #000000;
+  }
+
+  div.menu {
+    border-radius: 12px;
+  }
+
+  .w-md-editor {
+    border-radius: 12px;
+    background: #e0e0e0;
+  }
+
+  .w-md-editor-toolbar {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .w-md-editor-bar {
+    margin-top: -16px;
+    margin-right: 5px;
+  }
+
+  .w-md-editor-preview {
+    box-shadow: inset 1px 0 #ffffff;
   }
 }

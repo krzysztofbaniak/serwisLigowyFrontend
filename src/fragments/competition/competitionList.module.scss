@@ -14,3 +14,34 @@
     min-width: 240px;
   }
 }
+
+.linkWrapper {
+  margin: -8px -12px;
+  display: flex;
+  width: calc(100% + 24px);
+}
+
+.linkBox {
+  display: block;
+  border-right: 1px solid #BDBDBD;
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.link {
+  display: block;
+  padding: 8px 40px;
+  color: #828282;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+}
+
+.activeLink {
+  display: block;
+  padding: 8px 40px;
+  color: #0F3735;
+}

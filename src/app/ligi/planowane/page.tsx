@@ -1,0 +1,11 @@
+import MainLayout from "@/layouts/mainLayout";
+import CompetitionList from "@/fragments/competition/competitionList";
+
+export default function Page() {
+
+    return (
+        <MainLayout>
+            <CompetitionList type={'league'} state={'planned'} headline={'Planowane ligi'} />
+        </MainLayout>
+    );
+}

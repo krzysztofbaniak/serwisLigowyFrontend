@@ -43,8 +43,6 @@ export default function TeamPageBody() {
         }
     }, [team.data]);
 
-    console.log(matches)
-
     return (
         <div className={styles.column}>
             <TeamInfo team={team.data} emptyText={team.placeholder} />

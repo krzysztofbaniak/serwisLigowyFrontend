@@ -4,11 +4,16 @@ import Select from "react-select";
 import ClassicBox from "@/components/classicBox";
 import ClassicHeader from "@/components/classicHeader";
 import CompetitionEntry from "@/fragments/competition/competitionEntry";
-import {voivodeshipsSelectOptions} from "@/config/voivodeships";
+import {keyTranslation, voivodeshipsSelectOptions} from "@/utils/data";
 import {useEffect, useState} from "react";
 import styles from './competitionList.module.scss';
+import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 export default function CompetitionList({type, state, headline}) {
+    const pathname = usePathname()
+    console.log(pathname)
+
     const [voivodeship, setVoivodeship] = useState(null);
     const [competition, setCompetition] = useState(null)
     const [emptyText, setEmptyText] = useState('Ładowanie...')
@@ -73,6 +78,19 @@ export default function CompetitionList({type, state, headline}) {
                         <h2>{`${headline} (${competition?.length || 0})`}</h2>
                         <NoSSR><Select placeholder={'Województwo'} className={styles.competitionList__select} onChange={(option) => setVoivodeship(option.value)} options={voivodeshipsSelectOptions}/></NoSSR>
                     </ClassicHeader>
+                    <ClassicHeader>
+                        <div className={styles.linkWrapper}>
+                            <p className={styles.linkBox}><Link
+                                className={pathname === generateLink(type, states[2]) ? styles.activeLink : styles.link}
+                                href={generateLink(type, states[2])}>Zakończone</Link></p>
+                            <p className={styles.linkBox}><Link
+                                className={pathname === generateLink(type, states[1]) ? styles.activeLink : styles.link}
+                                href={generateLink(type, states[1])}>Aktualne</Link></p>
+                            <p className={styles.linkBox}><Link
+                                className={pathname === generateLink(type, states[0]) ? styles.activeLink : styles.link}
+                                href={generateLink(type, states[0])}>Planowane</Link></p>
+                        </div>
+                    </ClassicHeader>
                     <div>
                         {competition?.length > 0 ? competition.map(competition => (
                             <CompetitionEntry key={competition.id} competition={competition}/>
@@ -85,3 +103,8 @@ export default function CompetitionList({type, state, headline}) {
 }
 
 const limit = 5;
+const states = ['planned', 'inProgress', 'over'];
+
+function generateLink(type, state) {
+    return `/${type === 'league' ? 'ligi' : 'turnieje'}${state === 'inProgress' ? '' : state === 'planned' ? '/planowane' : '/zakonczone'}`
+}

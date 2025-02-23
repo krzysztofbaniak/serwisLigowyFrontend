@@ -3,7 +3,6 @@
   &__imageHolder {
     display: flex;
     overflow: hidden;
-    border-radius: 12px 12px 0 0;
   }
 
   &__image {
@@ -11,7 +10,7 @@
   }
 
   &__content {
-    padding: 12px 20px;
+    padding: 24px 20px;
   }
 
   &__headline {
@@ -36,5 +35,16 @@
   &__empty {
     padding: 32px 20px;
     text-align: center;
+  }
+}
+
+.returnLink {
+  display: block;
+  padding: 8px 40px;
+  margin: -8px -12px;
+  border-right: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
   }
 }

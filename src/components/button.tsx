@@ -7,9 +7,9 @@ export default function Button(props: ClassAttributes<HTMLButtonElement> & React
     return (
         <>
             {props.redirect ? (
-                <Link href={props.redirect} className={`${styles.button} ${styles.ghostStyle}`}>{props.children}</Link>
+                <Link href={props.redirect} className={`${styles.button} ${props.ghostStyle ? styles.ghostStyle : ''}`}>{props.children}</Link>
             ) : (
-                <button {...props} className={styles.button}>{props.children}</button>
+                <button {...props} className={`${styles.button} ${props.ghostStyle ? styles.ghostStyle : ''}`}>{props.children}</button>
             )}
         </>
     )

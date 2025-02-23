@@ -1,0 +1,55 @@
+.profile {
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 4px 16px;
+    padding: 16px 20px;
+    align-items: start;
+    font-size: 14px;
+    color: #333333;
+  }
+
+  &__image {
+    grid-row: span 2;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 18px;
+    grid-column: span 2;
+  }
+
+  &__empty {
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+}
+
+.returnLink {
+  display: block;
+  padding: 8px 40px;
+  margin: -8px -12px;
+  border-right: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+}
+
+.editLink {
+  display: block;
+  padding: 8px 40px;
+  margin: -8px -12px;
+  border-left: 1px solid #BDBDBD;
+
+  &:hover {
+    background: #dcdcdc;
+  }
+}

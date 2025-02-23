@@ -2,10 +2,16 @@ import ClassicBox from "@/components/classicBox";
 import Image from "next/image";
 import Markdown from "react-markdown";
 import styles from './post.module.scss'
+import ClassicHeader from "@/components/classicHeader";
+import Link from "next/link";
 
 export default function Post({post}) {
     return (
         <ClassicBox>
+            <ClassicHeader>
+                <Link className={styles.returnLink} href={'/aktualnosci'}>◀&nbsp;Powrót</Link>
+                <p>Aktualność</p>
+            </ClassicHeader>
             <div className={styles.post}>
                 {post ? (
                     <div>

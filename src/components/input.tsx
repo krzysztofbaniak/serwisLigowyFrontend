@@ -7,9 +7,7 @@ export default function Input(props: FieldAttributes<any>) {
             <div>
                 <Field {...props} className={styles.input} />
                 {props.error ? (
-                    <>
-                        error w chuj
-                    </>
+                    <p className={styles.error}>{props.error}</p>
                 ) : null}
             </div>
         </>

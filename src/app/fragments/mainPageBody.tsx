@@ -8,7 +8,7 @@ export default function MainPageBody() {
 
     useEffect(() => {
         async function fetchPosts() {
-            let apiUrl = `${process.env.apiHost}/api/posts?populate=*`;
+            let apiUrl = `${process.env.apiHost}/api/posts?populate=*&pagination[limit]=10&sort=createdAt:desc`;
             const res = await fetch(apiUrl)
             const data = await res.json()
             setPosts(data.data)

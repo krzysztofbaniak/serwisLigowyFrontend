@@ -42,22 +42,22 @@ export default function CompetitionFeed() {
                     )}
                 </>
             </ClassicBox>
-                <ClassicBox redirect={'/turnieje'} condition={tournaments.data.length > 0}>
-                    <>
-                        <ClassicHeader><h2>Aktualne turnieje</h2></ClassicHeader>
-                        {tournaments.data.length > 0 ? (
-                            <div className={styles.contestFeed__list}>
-                                {tournaments.data.map(tournament => (
-                                    <Link href={`/turnieje/${tournament.slug}`} key={tournament.id} className={styles.contestFeed__entry}>
-                                        <p>{tournament.name}</p>
-                                    </Link>
-                                ))}
-                            </div>
-                        ) : (
-                            <p className={styles.contestFeed__empty}>{tournaments.placeholder}</p>
-                        )}
-                    </>
-                </ClassicBox>
+            <ClassicBox redirect={'/turnieje'} condition={tournaments.data.length > 0}>
+                <>
+                    <ClassicHeader><h2>Aktualne turnieje</h2></ClassicHeader>
+                    {tournaments.data.length > 0 ? (
+                        <div className={styles.contestFeed__list}>
+                            {tournaments.data.map(tournament => (
+                                <Link href={`/turnieje/${tournament.slug}`} key={tournament.id} className={styles.contestFeed__entry}>
+                                    <p>{tournament.name}</p>
+                                </Link>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className={styles.contestFeed__empty}>{tournaments.placeholder}</p>
+                    )}
+                </>
+            </ClassicBox>
         </div>
     )
 }

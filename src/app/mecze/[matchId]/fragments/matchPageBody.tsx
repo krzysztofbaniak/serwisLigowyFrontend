@@ -24,10 +24,10 @@ export default function MatchPageBody() {
 
     useEffect(() => {
         async function fetchMatchReport() {
-            let apiUrl = `${process.env.apiHost}/api/match-reports?populate=*&filter[id][$eq]=${match?.matchReport.id}`;
+            let apiUrl = `${process.env.apiHost}/api/match-reports?populate=*&filter[documentId][$eq]=${match?.matchReport.documentId}`;
             const res = await fetch(apiUrl)
             const data = await res.json()
-            setMatchReport(data.data[0])
+            setMatchReport(data.data.filter((matchReport) => matchReport.documentId === match?.matchReport.documentId)[0])
         }
         if(match?.matchReport)
             fetchMatchReport()

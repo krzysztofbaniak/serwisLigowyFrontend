@@ -3,7 +3,7 @@ import ClassicHeader from "@/components/classicHeader";
 import PostEntry from "@/fragments/post/postEntry";
 import styles from './postFeed.module.scss'
 
-export default function PostFeed({posts, placeholder = 'Ładowanie...', redirectLink, loadFunction}) {
+export default function PostFeed({posts, placeholder = 'Ładowanie...', redirectLink = '', loadFunction = () => {}}) {
 
     return (
         <ClassicBox redirect={redirectLink} onClick={loadFunction} condition={posts && posts.length > 0}>

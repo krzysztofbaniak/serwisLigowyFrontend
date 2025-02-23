@@ -12,8 +12,6 @@ export default function MatchInfo({match, matchReport}) {
     const homeScore = matchReport?.goals.filter(goal => goal.team === 'home').length
     const awayScore = matchReport?.goals.filter(goal => goal.team === 'away').length
 
-    console.log(matchReport, homeScore, awayScore)
-
     return (
         <ClassicBox>
             <ClassicHeader>

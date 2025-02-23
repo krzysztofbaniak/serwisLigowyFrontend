@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 import MatchFeed from "@/fragments/match/matchFeed";
 import Select from "react-select";
-import {voivodeshipsSelectOptions} from "@/config/voivodeships";
+import {voivodeshipsSelectOptions} from "@/utils/data";
 import NoSSR from "@/components/noSSR";
 import ResultFeed from "@/fragments/result/resultFeed";
 

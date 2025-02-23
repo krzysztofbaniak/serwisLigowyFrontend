@@ -4,7 +4,7 @@ import ResultEntry from "@/fragments/result/resultEntry";
 import styles from "./resultFeed.module.scss";
 import NoSSR from "@/components/noSSR";
 import Select from "react-select";
-import {voivodeshipsSelectOptions} from "@/config/voivodeships";
+import {voivodeshipsSelectOptions} from "@/utils/data";
 
 export default function ResultFeed({
    matches, placeholder = 'Ładowanie...', redirectLink,

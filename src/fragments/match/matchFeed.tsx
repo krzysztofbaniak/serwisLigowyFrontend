@@ -3,7 +3,7 @@ import ClassicHeader from "@/components/classicHeader";
 import MatchEntry from "@/fragments/match/matchEntry";
 import styles from "./matchFeed.module.scss";
 import Select from "react-select";
-import {voivodeshipsSelectOptions} from "@/config/voivodeships";
+import {voivodeshipsSelectOptions} from "@/utils/data";
 import NoSSR from "@/components/noSSR";
 
 export default function MatchFeed({
@@ -11,7 +11,8 @@ export default function MatchFeed({
   placeholder = 'Ładowanie...',
   redirectLink,
   loadFunction,
-  voivodeshipSelect
+  voivodeshipSelect,
+  title = 'Najbliższe mecze'
 }) {
 
     return (
@@ -19,7 +20,7 @@ export default function MatchFeed({
             <ClassicBox redirect={redirectLink} onClick={loadFunction} condition={matches && matches.length > 0}>
                 <ClassicHeader>
                     <>
-                        <h2>Najbliższe mecze</h2>
+                        <h2>{title} {matches && matches.length ? `(${matches.length})` : null}</h2>
                         {voivodeshipSelect &&
                             <NoSSR><Select className={styles.matchFeed__select} placeholder={'Województwo'}
                                            onChange={(option) => voivodeshipSelect(option.value)}
