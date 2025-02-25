@@ -1,5 +1,9 @@
 .notifications {
 
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
+
   &__entry {
     font-size: 12px;
     display: flex;

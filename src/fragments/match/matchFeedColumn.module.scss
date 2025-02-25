@@ -3,6 +3,10 @@
   flex-direction: column;
   gap: 16px;
 
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
+
   &__header {
     padding: 8px;
     background: #333333;

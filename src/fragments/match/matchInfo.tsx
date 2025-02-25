@@ -21,9 +21,13 @@ export default function MatchInfo({match, matchReport}) {
                 {match ? (
                     <div className={styles.matchInfo__wrapper}>
                         <div className={styles.matchInfo__teamWrapper}>
-                            <Avatar src={match.homeTeam.logotype?.formats.thumbnail.url}
-                                    alt={match.homeTeam.logotype?.alternativeText} width={80} height={80}/>
-                            <Link href={`/druzyny/${match.homeTeam.slug}`}>{match.homeTeam.name}</Link>
+                            <Avatar className={styles.matchInfo__logotype} src={match.homeTeam ? match.homeTeam.logotype?.formats.thumbnail.url : ''}
+                                    alt={match.homeTeam ? match.homeTeam.logotype?.alternativeText : ''} width={80} height={80}/>
+                            {match.homeTeam ? (
+                                <Link href={`/druzyny/${match.homeTeam.slug}`}>{match.homeTeam.name}</Link>
+                            ) : (
+                                <p>TBA</p>
+                            )}
                         </div>
                         <div className={styles.matchInfo__info}>
                             {match.stage && <p className={styles.matchInfo__infoParagraph}>{match.stage}</p>}
@@ -38,9 +42,13 @@ export default function MatchInfo({match, matchReport}) {
                             )}
                         </div>
                         <div className={styles.matchInfo__teamWrapper}>
-                            <Avatar src={match.awayTeam.logotype?.formats.thumbnail.url}
-                                    alt={match.awayTeam.logotype?.alternativeText} width={80} height={80}/>
-                            <Link href={`/druzyny/${match.awayTeam.slug}`}>{match.awayTeam.name}</Link>
+                            <Avatar className={styles.matchInfo__logotype} src={match.awayTeam ? match.awayTeam.logotype?.formats.thumbnail.url : ''}
+                                    alt={match.awayTeam ? match.awayTeam.logotype?.alternativeText : ''} width={80} height={80}/>
+                            {match.awayTeam ? (
+                                <Link href={`/druzyny/${match.awayTeam.slug}`}>{match.awayTeam.name}</Link>
+                            ) : (
+                                <p>TBA</p>
+                            )}
                         </div>
                     </div>
                 ) : (

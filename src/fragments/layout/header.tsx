@@ -10,9 +10,7 @@ export default function Header() {
             <div className={styles.header__layout}>
                 <Link href={'/'} className={styles.header__logo}>Serwis Ligowy</Link>
             </div>
-            <div>
-                <Navigation />
-            </div>
+            <Navigation />
         </header>
     )
 }

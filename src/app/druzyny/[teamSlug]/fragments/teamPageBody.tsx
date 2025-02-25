@@ -26,13 +26,13 @@ export default function TeamPageBody() {
 
     useEffect(() => {
         async function fetchMatches() {
-            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&pagination[limit]=20&filters[$or][0][awayTeam][documentId]=${team.data.documentId}&filters[$or][1][homeTeam][documentId]=${team.data.documentId}`;
+            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&filters[matchReport][$null]=true&pagination[limit]=20&filters[$or][0][awayTeam][documentId]=${team.data?.documentId}&filters[$or][1][homeTeam][documentId]=${team.data?.documentId}`;
             const res = await fetch(apiUrl)
             const data = await res.json()
             setMatches({data: data.data, placeholder: 'Brak meczów'})
         }
         async function fetchScores() {
-            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&populate[matchReport][populate][3]=goals&filters[matchReport][$notNull]=true&pagination[limit]=20&filters[$or][0][awayTeam][documentId]=${team.data.documentId}&filters[$or][1][homeTeam][documentId]=${team.data.documentId}`;
+            let apiUrl = `${process.env.apiHost}/api/matches?populate[0]=*&populate[awayTeam][populate][1]=logotype&populate[homeTeam][populate][2]=logotype&populate[matchReport][populate][3]=goals&filters[matchReport][$notNull]=true&pagination[limit]=20&filters[$or][0][awayTeam][documentId]=${team.data?.documentId}&filters[$or][1][homeTeam][documentId]=${team.data?.documentId}`;
             const res = await fetch(apiUrl)
             const data = await res.json()
             setScores({data: data.data, placeholder: 'Brak wyników'})

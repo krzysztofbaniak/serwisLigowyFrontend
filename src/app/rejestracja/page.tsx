@@ -36,7 +36,7 @@ export default function Page() {
                 createProfile(values)
             })
             .catch(error => {
-                alert('Wystąpił nieoczekiwany błąd');
+                alert('Rejestracja jest aktualnie nieczynna');
             })
     }
 
